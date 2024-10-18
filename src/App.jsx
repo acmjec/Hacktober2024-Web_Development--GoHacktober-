@@ -1,32 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './App.css';
+import Landingpage from './pages/Landingpage';
+import Navbar from './pages/Navbar';
+import Repopage from './pages/Repopage'; 
 
 function App() {
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Welcome to the repositry of ACM JEC-Web devlopment </h1>
-      <div className="card">
-         
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Landingpage />} />
+        <Route path="/repo" element={<Repopage />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
